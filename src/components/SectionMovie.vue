@@ -57,6 +57,21 @@
   </section>
 </template>
 <style lang="scss" scoped>
+/* width */
+::-webkit-scrollbar {
+  height: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .trend-movie {
   height: 500px;
   background: #1c2434;
@@ -69,8 +84,6 @@
     margin-top: 60px;
     overflow-x: scroll;
     overflow-y: hidden;
-      scrollbar-color: red yellow;
-
     padding: 20px;
     box-sizing: border-box;
     display: flex;
