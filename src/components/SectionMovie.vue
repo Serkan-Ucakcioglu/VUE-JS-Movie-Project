@@ -2,7 +2,7 @@
 <template>
   <section class="trend-movie">
     <div class="container">
-      <h1>Trend Movie</h1>
+        <h1>Trend Movie</h1>
       <div class="movie-list">
         <a href="#" class="movie-link">
           <img
@@ -18,7 +18,7 @@
         </a>
         <a href="#" class="movie-link">
           <img
-            src="https://www.oggusto.com/UserFiles/Image/images/ekim2021/dont-worry.jpg"
+            src="https://tr.web.img2.acsta.net/pictures/19/01/07/17/18/4980802.jpg"
             alt=""
           />
         </a>
@@ -55,11 +55,12 @@
       </div>
     </div>
   </section>
+  <div style="height: 35px; background: black;"></div>
 </template>
 <style lang="scss" scoped>
 /* width */
 ::-webkit-scrollbar {
-  height: 5px;
+  height: 8px;
 }
 
 /* Handle */
@@ -73,12 +74,12 @@
 }
 
 .trend-movie {
-  height: 500px;
+  min-height: 400px;
   background: #1c2434;
   h1 {
     color: white;
     text-align: center;
-    padding-top: 10px;
+    padding-top: 25px;
   }
   .movie-list {
     margin-top: 60px;
@@ -96,6 +97,10 @@
         height: 250px;
         margin-right: 50px;
         box-shadow: -1px 0px 7px 8px rgba(0, 0, 0, 0.75);
+      }
+      &:hover{
+          transform: scale(1.1);
+         
       }
     }
   }
