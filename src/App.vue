@@ -1,10 +1,11 @@
 <script setup>
 import HeaderBar from "@/components/HeaderBar.vue";
+import SectionMovie from "./components/SectionMovie.vue";
 </script>
 
 <template>
 <HeaderBar />
-<h1>vuejs</h1>
+<SectionMovie/>
 
 
 </template>
@@ -15,9 +16,7 @@ import HeaderBar from "@/components/HeaderBar.vue";
   margin: 0 ;
  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-h1{
-  color: red;
-}
+
 .container{
   width: 90%;
   margin: 0px auto;
