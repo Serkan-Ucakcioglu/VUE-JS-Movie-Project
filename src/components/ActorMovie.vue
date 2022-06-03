@@ -85,7 +85,7 @@
     margin-bottom: 10px;
 
     li {
-         display: flex;
+      display: flex;
       align-items: center;
       justify-content: center;
       width: 200px;
@@ -98,7 +98,7 @@
       a {
         display: flex;
         align-items: center;
-                margin-bottom: 10px;
+        margin-bottom: 10px;
         img {
           width: 50px;
           height: 50px;
