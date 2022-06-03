@@ -77,7 +77,7 @@
       </div>
     </div>
   </section>
-  <div style="height: 35px; background: black;"></div>
+  <div class="space"></div>
   <section class="trend-movie">
     <div class="container">
         <h1>Last Month Trending Movies</h1>
@@ -157,7 +157,7 @@
   </section>
     
 </template>
-<style lang="scss" scoped>
+<style lang="scss" >
 /* width */
 ::-webkit-scrollbar {
   height: 8px;
@@ -172,7 +172,10 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
+.space{
+  height: 30px;
+  background: black;
+}
 .trend-movie {
   min-height: 430px;
   background: #1c2434;
