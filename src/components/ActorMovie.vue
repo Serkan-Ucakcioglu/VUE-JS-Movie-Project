@@ -67,15 +67,15 @@
 
 <style lang="scss" scoped>
 .actor-list {
-  background: black;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: black;
   .content {
-    padding: 30px;
-    box-sizing: border-box;
     color: white;
     text-align: center;
+    padding: 30px;
+    box-sizing: border-box;
     h1 {
       margin-bottom: 25px;
     }
@@ -85,24 +85,24 @@
     margin-bottom: 10px;
 
     li {
-        width: 200px;
-        height: 70px;
-        list-style: none;
+         display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 70px;
+      list-style: none;
+      background: #353535;
+      padding: 5px;
+      border-radius: 5px;
+      margin-right: 10px;
+      a {
         display: flex;
         align-items: center;
-        justify-content: center;
-        background: #353535;
-        padding: 5px;
-        border-radius: 5px;
-        margin-right: 10px;
-      a {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
+                margin-bottom: 10px;
         img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
         }
       }
       span {
