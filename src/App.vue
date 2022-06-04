@@ -1,28 +1,24 @@
 <script setup>
-import HeaderBar from "@/components/HeaderBar.vue";
-import SectionMovie from "./components/SectionMovie.vue";
-import ActorMovie from "./components/ActorMovie.vue";
-import FooterMovie from "./components/FooterMovie.vue";
+
+
+
 </script>
 
 <template>
-<HeaderBar />
-<SectionMovie/>
-<ActorMovie/>
-<FooterMovie/>
-
+<router-view></router-view>
 </template>
 
-<style lang="scss"  >
-*{
-  padding: 0 ;
-  margin: 0 ;
- font-family: Verdana, Geneva, Tahoma, sans-serif;
+<style lang="scss">
+* {
+  padding: 0;
+  margin: 0;
 }
 
-.container{
+.container {
   width: 90%;
   margin: 0px auto;
 }
-
+.actives{
+background: #3fb883;
+}
 </style>

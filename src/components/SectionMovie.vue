@@ -1,5 +1,7 @@
-<script setup></script>
+<script setup>
+</script>
 <template>
+
   <section class="trend-movie">
     <div class="container">
         <h1>Trend Movie</h1>
