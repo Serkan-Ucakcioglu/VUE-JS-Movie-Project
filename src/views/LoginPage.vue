@@ -64,6 +64,7 @@ section {
   transition: all 0.8s ease;
   display: flex;
   justify-content: center;
+  color: white;
 }
 
 #btn:hover {
