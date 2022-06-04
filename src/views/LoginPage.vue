@@ -1,7 +1,8 @@
 <script setup>
-import HeaderBar from '@/components/HeaderBar.vue';</script>
+import HeaderBar from "@/components/HeaderBar.vue";
+</script>
 <template>
-<HeaderBar/>
+  <HeaderBar />
   <section>
     <div class="login">
       <label for="username">Username</label>

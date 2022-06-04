@@ -1,13 +1,14 @@
 <script setup>
-import HeaderBar from '@/components/HeaderBar.vue';</script>
+import HeaderBar from "@/components/HeaderBar.vue";
+</script>
 
 <template>
-<HeaderBar/>
+  <HeaderBar />
   <div class="signup">
-        <form>
-        <h1>Register</h1>
+    <form>
+      <h1>Register</h1>
       <label for="">Name</label>
-      <input  type="text" minlength="8" placeholder="Name" />
+      <input type="text" minlength="8" placeholder="Name" />
       <label for="">Surname</label>
       <input type="text" minlength="8" placeholder="Surname" />
       <label for="">Email</label>
@@ -25,19 +26,19 @@ import HeaderBar from '@/components/HeaderBar.vue';</script>
   align-items: center;
   justify-content: center;
   background: black;
-  
+
   form {
     display: flex;
     flex-direction: column;
     padding: 15px;
-    background: white;;
+    background: white;
     box-sizing: border-box;
     width: 500px;
     border: 2px solid white;
     border-radius: 6px;
-    h1{
-        color: black;
-        text-align: center;
+    h1 {
+      color: black;
+      text-align: center;
     }
     label {
       text-align: left;
@@ -55,25 +56,25 @@ import HeaderBar from '@/components/HeaderBar.vue';</script>
       border: 1px solid white;
     }
     button {
-        font-size: 16px;
+      font-size: 16px;
       margin-top: 15px;
       height: 35px;
       background: rgb(11, 86, 193);
-     width: 100%;
-     border: 1px solid white;
+      width: 100%;
+      border: 1px solid white;
       color: white;
       border-radius: 5px;
       cursor: pointer;
-      &:hover{
-          background: #144699;
+      &:hover {
+        background: #144699;
       }
     }
   }
 }
 @media screen and (max-width: 600px) {
-   form{
-       width: 400px !important;
-       margin: 0px 20px;
-   }
+  form {
+    width: 400px !important;
+    margin: 0px 20px;
+  }
 }
 </style>
