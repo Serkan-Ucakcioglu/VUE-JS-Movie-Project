@@ -195,11 +195,14 @@
 
     .movie-link {
       position: relative;
+      margin-right: 30px;
+      width: 200px;
+      height: 250px;
       img {
         width: 200px;
         height: 250px;
-        margin-right: 50px;
         box-shadow: -1px 0px 7px 8px rgba(0, 0, 0, 0.75);
+       
       }
       &:hover {
         transform: scale(1.1);
