@@ -12,7 +12,7 @@ axios
     apiData.value = res.data.results.filter(
       (movie) => movie.media_type != "tv"
     );
-    console.log("dqwdqdqwd", apiData.value);
+
   });
 </script>
 <template>
