@@ -23,6 +23,7 @@ const router = createRouter({
       path: "/movie",
       component: () => import("@/views/MoviePage"),
     },
+
   ],
 });
 export default router;

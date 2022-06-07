@@ -1,64 +1,30 @@
-<script setup></script>
+<script setup>
+import axios from "axios";
+import { ref, defineProps } from "vue";
+
+const apiKey = ref("cd3758ae9695adf66bbf6bae68b8d777");
+const apiData = ref([]);
+const props = defineProps(["title"]);
+
+axios
+  .get(`https://api.themoviedb.org/3/person/popular?api_key=${apiKey.value}`)
+  .then((res) => {
+    apiData.value = res.data.results.slice(0, 12);
+  });
+</script>
 <template>
   <section class="actor-list">
+    <h1>{{ props.title }}</h1>
     <div class="content">
-      <h1>Best Actor</h1>
       <ul>
-        <li>
+        <li v-for="data in apiData" :key="data.id">
           <a href="#">
             <img
-              src="https://tr.web.img3.acsta.net/pictures/19/07/31/17/35/5396784.jpg"
+              :src="`https://image.tmdb.org/t/p/w500/${data.profile_path}`"
               alt=""
             />
           </a>
-          <span>Jason Statham</span>
-        </li>
-        <li>
-          <a href="#">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Dwayne_Johnson_2%2C_2013.jpg"
-              alt=""
-            />
-          </a>
-          <span>Dwayne Johnson</span>
-        </li>
-        <li>
-          <a href="#">
-            <img
-              src="https://i1.wp.com/filmloverss.com/wp-content/uploads/2014/07/lucy-3-filmloverss.jpg?fit=680%2C478&ssl=1"
-              alt=""
-            />
-          </a>
-          <span>Scarlett Johansson</span>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <a href="#">
-            <img
-              src="https://m.media-amazon.com/images/M/MV5BODg3MzYwMjE4N15BMl5BanBnXkFtZTcwMjU5NzAzNw@@._V1_.jpg"
-              alt=""
-            />
-          </a>
-          <span>Angelina Jolie</span>
-        </li>
-        <li>
-          <a href="#">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/8/86/Wentworth_by_Andrew_Horovitz.JPG"
-              alt=""
-            />
-          </a>
-          <span>Wentworth Miller</span>
-        </li>
-        <li>
-          <a href="#">
-            <img
-              src="https://media-cdn.t24.com.tr/media/library/2022/02/1644443025871-akjdnakljdbasdkj.jpg"
-              alt=""
-            />
-          </a>
-          <span>Denzel Washington</span>
+          <span>{{ data.name }}</span>
         </li>
       </ul>
     </div>
@@ -67,12 +33,20 @@
 
 <style lang="scss" scoped>
 .actor-list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 0px auto;
   background: black;
-  .content {
+  h1 {
     color: white;
+    text-align: center;
+    padding-top: 10px;
+    box-sizing: border-box;
+  }
+  .content {
+    display: flex;
+    justify-content: center;
+    min-height: 300px;
+    color: white;
+    flex-wrap: wrap;
     text-align: center;
     padding: 30px;
     box-sizing: border-box;
@@ -82,23 +56,27 @@
   }
   ul {
     display: flex;
-    margin-bottom: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 
     li {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       width: 200px;
       height: 70px;
       list-style: none;
       background: #353535;
-      padding: 5px;
+      padding: 15px;
+      box-sizing: border-box;
       border-radius: 5px;
       margin-right: 10px;
       a {
         display: flex;
+
         align-items: center;
-        margin-bottom: 10px;
+
         img {
           width: 50px;
           height: 50px;
@@ -106,7 +84,7 @@
         }
       }
       span {
-        margin-left: 5px;
+        margin: 0px auto;
       }
     }
   }
@@ -117,6 +95,8 @@
     flex-direction: column;
     li {
       margin-bottom: 15px;
+      justify-content: flex-start !important;
+      align-items: center !important;
     }
   }
 }

@@ -4,5 +4,5 @@ import ActorMovie from "@/components/ActorMovie.vue";
 </script>
 <template>
   <HeaderBar />
-  <ActorMovie />
+  <ActorMovie title="Best Actor" />
 </template>
