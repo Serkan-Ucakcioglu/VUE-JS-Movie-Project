@@ -147,8 +147,7 @@ axios
     }
 
     .movie-details {
-      width: 100%;
-      min-height: 400px;
+      min-height: 300px;
       display: flex;
       flex-direction: column;
       word-spacing: 5px;
@@ -156,7 +155,6 @@ axios
       align-items: center;
       justify-content: center;
       text-align: center;
-
       margin-top: 10px;
 
       h1 {
@@ -228,7 +226,7 @@ section {
 
 @media only screen and (max-width: 600px) {
   .hero {
-    min-height: 500px !important;
+    min-height: 400px !important;
     .genre {
       display: flex;
       justify-content: center;
@@ -239,6 +237,10 @@ section {
   }
   .movie {
     flex-direction: column;
+
+    .movie-details{
+     justify-content: flex-start !important;
+    }
   }
   .cast-wrapper {
     display: flex;
