@@ -7,6 +7,7 @@ const props = defineProps(["id"]);
 const apiData = ref([]);
 const apiKey = ref("cd3758ae9695adf66bbf6bae68b8d777");
 const castData = ref([]);
+const similarData = ref([]);
 
 axios
   .get(
@@ -15,6 +16,8 @@ axios
   .then((res) => {
     apiData.value = res.data;
     castData.value = res.data.credits.cast.slice(0, 15);
+    similarData.value = res.data.similar_movies.results.slice(0, 16)
+    
   });
 </script>
 
@@ -88,6 +91,32 @@ axios
       </div>
     </div>
   </section>
+
+  <section class="movies">
+    <h1>Similar Movies</h1>
+    <div class="container">
+      <div class="movie_wrapper">
+        <div
+          class="movie_item"
+          v-for="movie in similarData"
+          :key="movie.id"
+        >
+          <a :href="`https://www.themoviedb.org/movie/${movie.id}`">
+            <img
+              :src="`https://image.tmdb.org/t/p/w92${movie.poster_path}`"
+              :alt="movie.title"
+              :title="movie.title"
+              class="similar__image"
+              loading="lazy"
+            />
+            <div class="similar__name">
+              {{ movie.title }} ({{ movie.release_date.slice(0, 4) }})
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>
@@ -98,6 +127,7 @@ axios
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid white;
 
   .movie {
     max-width: 1000px;
@@ -128,28 +158,27 @@ axios
         font-family: "Times New Roman", Times, serif;
       }
 
-.genre{
-
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-        .genres {
+      .genre {
         display: flex;
-        color: white;
+        flex-wrap: wrap;
         justify-content: center;
-        margin-right: 5px;
-        span {
-          border: 1px solid white;
-          margin-top: 10px;
-          padding: 5px;
-          cursor: pointer;
+        .genres {
+          display: flex;
+          color: white;
+          justify-content: center;
+          margin-right: 5px;
+          span {
+            border: 1px solid white;
+            margin-top: 10px;
+            padding: 5px;
+            cursor: pointer;
 
-          &:hover {
-            background: #3fb883;
+            &:hover {
+              background: #3fb883;
+            }
           }
         }
       }
-}
     }
 
     .movie-details {
@@ -159,7 +188,7 @@ justify-content: center;
       align-items: flex-start;
       align-content: flex-start;
       justify-content: center;
-      text-align: left;
+      text-align: justify;
       margin-top: 10px;
       padding: 15px;
       font-size: 18px;
@@ -169,25 +198,26 @@ justify-content: center;
       h1 {
         font-size: 35px;
         line-height: 35px;
-        margin: 0 ;
+        margin: 0;
         text-shadow: #fff 0 0 5px;
-        text-align: left;
+        text-align: center;
       }
-      .overview{
+      .overview {
         display: flex;
         justify-content: flex-start;
         align-content: flex-start;
-        margin-top:  15px;
+        margin-top: 15px;
       }
     }
   }
 }
 
 section {
-  min-height: 300px;
+  min-height: 250px;
   background: #0b0f16;
   padding: 20px;
   box-sizing: border-box;
+  border-bottom: 1px solid white;
 
   h1 {
     color: white;
@@ -239,6 +269,42 @@ section {
   }
 }
 
+.movies {
+  background: rgb(3, 3, 39);
+
+  h1 {
+    color: white;
+    text-align: center;
+    font-size: 25px;
+  }
+  .container {
+    display: flex;
+    .movie_wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      .movie_item {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        flex-wrap: wrap;
+        flex-basis: 130px;
+        align-content: center;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 1rem;
+        padding: 1rem;
+        text-align: center;
+
+        a {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .hero {
     min-height: 400px !important;
@@ -253,7 +319,7 @@ section {
   .movie {
     flex-direction: column;
 
-    .movie-details{
+    .movie-details {
       font-size: 15px !important;
     }
   }
@@ -264,6 +330,7 @@ section {
     text-align: center;
 
     .cast {
+      width: 100% !important;
       border-radius: 15px !important;
     }
   }
