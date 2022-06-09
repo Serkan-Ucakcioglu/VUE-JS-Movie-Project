@@ -9,7 +9,6 @@ axios
   .get(`https://api.themoviedb.org/3/${props.apiQuery}?api_key=${apiKey.value}`)
   .then((res) => {
     apiData.value = res.data.results.slice(0, 10);
-   
   });
 </script>
 <template>
@@ -17,19 +16,14 @@ axios
     <div class="container">
       <h1>UpComing Movies</h1>
       <div class="movie-list">
-        <a
-        
-          class="movie-link"
-          v-for="(data, index) in apiData"
-          :key="data.id"
-        >
-        <router-link :to="{ name: 'profile', params: {  id: data.id }}">
-          <img
-            :src="`https://image.tmdb.org/t/p/w200${data.poster_path}`"
-            alt=""
-          />
-          <span class="head-title">{{ index + 1 }}. {{ data.title }}</span>
-        </router-link>
+        <a class="movie-link" v-for="(data, index) in apiData" :key="data.id">
+          <router-link :to="{ name: 'profile', params: { id: data.id } }">
+            <img
+              :src="`https://image.tmdb.org/t/p/w200${data.poster_path}`"
+              alt=""
+            />
+            <span class="head-title">{{ index + 1 }}. {{ data.title }}</span>
+          </router-link>
         </a>
       </div>
       <div class="footer-foot">

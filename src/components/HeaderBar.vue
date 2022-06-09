@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+
 const isShow = ref(false);
 </script>
 <template>
@@ -52,7 +53,7 @@ const isShow = ref(false);
             <router-link active-class="actives" to="/register"
               >Register</router-link
             >
-            <input type="text" class="search" placeholder="Search Movie 🔎" />
+            <input type="text" class="search"   placeholder="Search Movie 🔎" />
           </div>
         </nav>
       </div>

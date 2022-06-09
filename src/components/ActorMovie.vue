@@ -18,13 +18,12 @@ axios
     <div class="content">
       <ul>
         <li v-for="data in apiData" :key="data.id">
-          <a href="#">
+          <a :href="`https://www.themoviedb.org/person/${data.id}`">
             <img
               :src="`https://image.tmdb.org/t/p/w500/${data.profile_path}`"
-              alt=""
             />
+            <span>{{ data.name }}</span>
           </a>
-          <span>{{ data.name }}</span>
         </li>
       </ul>
     </div>
@@ -73,22 +72,23 @@ axios
       border-radius: 5px;
       margin-right: 10px;
       a {
+        width: 100%;
         display: flex;
-
+        text-decoration: none;
         align-items: center;
+        justify-content: space-around;
+        span {
+          width: 100%;
+          justify-content: center;
+          color: white;
+        }
 
         img {
           width: 50px;
           height: 50px;
           border-radius: 50%;
           object-fit: cover;
-          
         }
-      }
-      span {
-        width: 100%;
-       display: flex;
-       justify-content: center;
       }
     }
   }

@@ -15,8 +15,8 @@ axios
   )
   .then((res) => {
     apiData.value = res.data;
-    castData.value = res.data.credits.cast.slice(0, 15);
-    similarData.value = res.data.similar_movies.results.slice(0, 16)
+    castData.value = res.data.credits.cast.slice(0, 9);
+    similarData.value = res.data.similar_movies.results.slice(0, 12)
     
   });
 </script>
@@ -117,6 +117,13 @@ axios
       </div>
     </div>
   </section>
+  <div class="footer-foot">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU"
+          alt=""
+        />
+        <span>2022 Best Movie Site</span>
+      </div>
 </template>
 
 <style lang="scss" scoped>
@@ -270,7 +277,7 @@ section {
 }
 
 .movies {
-  background: rgb(3, 3, 39);
+  background: #071c3c;
 
   h1 {
     color: white;
@@ -305,6 +312,20 @@ section {
   }
 }
 
+
+  .footer-foot {
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    img {
+      width: 50px;
+      height: 50px;
+      margin-top: 10px;
+    }
+  }
+
 @media only screen and (max-width: 600px) {
   .hero {
     min-height: 400px !important;
@@ -321,6 +342,7 @@ section {
 
     .movie-details {
       font-size: 15px !important;
+      line-height: 25px !important;
     }
   }
   .cast-wrapper {

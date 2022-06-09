@@ -2,10 +2,9 @@
 import axios from "axios";
 import { defineProps, ref } from "vue";
 
-const props = defineProps(["apiQuery", "title"]);
+const props = defineProps(["apiQuery", "title","movie"]);
 const apiData = ref([]);
 const apiKey = ref("cd3758ae9695adf66bbf6bae68b8d777");
-
 axios
   .get(`https://api.themoviedb.org/3/${props.apiQuery}?api_key=${apiKey.value}`)
   .then((res) => {
@@ -13,6 +12,7 @@ axios
       (movie) => movie.media_type != "tv"
     );
   });
+
 </script>
 <template>
   <section class="trend-movie">
@@ -79,10 +79,9 @@ axios
       cursor: pointer;
 
       img {
-        width: 200px;
+        max-width: 200px;
         height: 270px;
         box-shadow: -1px 0px 7px 8px rgba(0, 0, 0, 0.75);
-        
       }
       &:hover {
         transform: scale(1.1);
