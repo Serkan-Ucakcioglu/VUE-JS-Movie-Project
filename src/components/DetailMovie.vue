@@ -128,11 +128,16 @@ axios
         font-family: "Times New Roman", Times, serif;
       }
 
-      .genres {
+.genre{
+
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+        .genres {
         display: flex;
         color: white;
         justify-content: center;
-
+        margin-right: 5px;
         span {
           border: 1px solid white;
           margin-top: 10px;
@@ -144,25 +149,35 @@ axios
           }
         }
       }
+}
     }
 
     .movie-details {
       min-height: 300px;
       display: flex;
       flex-direction: column;
-      word-spacing: 5px;
-      line-height: 20px;
-      align-items: center;
+      align-items: flex-start;
+      align-content: flex-start;
       justify-content: center;
-      text-align: center;
+      text-align: left;
       margin-top: 10px;
+      padding: 15px;
+      font-size: 18px;
+      line-height: 30px;
+      box-sizing: border-box;
 
       h1 {
         font-size: 35px;
         line-height: 35px;
-        margin-bottom: 10px;
+        margin: 0 ;
         text-shadow: #fff 0 0 5px;
-        text-align: center;
+        text-align: left;
+      }
+      .overview{
+        display: flex;
+        justify-content: flex-start;
+        align-content: flex-start;
+        margin-top:  15px;
       }
     }
   }
@@ -238,9 +253,7 @@ section {
   .movie {
     flex-direction: column;
 
-    .movie-details{
-     justify-content: flex-start !important;
-    }
+    
   }
   .cast-wrapper {
     display: flex;
