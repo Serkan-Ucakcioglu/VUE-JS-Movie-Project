@@ -101,7 +101,7 @@ axios
           v-for="movie in similarData"
           :key="movie.id"
         >
-          <a :href="`https://www.themoviedb.org/movie/${movie.id}`">
+          <a :href="`https://www.themoviedb.org/movie/${movie.id}`" target="_blank">
             <img
               :src="`https://image.tmdb.org/t/p/w92${movie.poster_path}`"
               :alt="movie.title"
