@@ -73,7 +73,6 @@ const castData = ref([])
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid white;
 
     .movie {
         max-width: 1000px;
@@ -148,7 +147,7 @@ const castData = ref([])
 
 section {
     min-height: 300px;
-    background: black;
+    background: #0b0f16;
     padding: 20px;
     box-sizing: border-box;
 
@@ -203,6 +202,10 @@ section {
 }
 
 @media only screen and (max-width: 600px) {
+    .hero{
+        min-height: 400px;
+    }
+
     .movie {
         flex-direction: column;
 
