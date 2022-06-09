@@ -81,11 +81,11 @@ axios
         color: white;
 
         .movie-poster {
-            width: 200px;
+            width: 220px;
             display: flex;
             flex-direction: column;
-            margin-right: 20px;
-
+            align-items: center;
+           
             img {
                 width: 200px;
                 height: auto;
@@ -209,6 +209,9 @@ section {
             .genres {
                 margin-right: 10px;
             }
+        }
+        .movie-poster{
+            margin-left: 60px !important;
         }
     }
     .movie {
