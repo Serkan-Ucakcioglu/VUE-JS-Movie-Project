@@ -210,9 +210,7 @@ section {
                 margin-right: 10px;
             }
         }
-        .movie-poster{
-            margin-left: 60px !important;
-        }
+        
     }
     .movie {
         flex-direction: column;
