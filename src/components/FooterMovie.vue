@@ -18,16 +18,18 @@ axios
       <h1>UpComing Movies</h1>
       <div class="movie-list">
         <a
-          href="#"
+        
           class="movie-link"
           v-for="(data, index) in apiData"
           :key="data.id"
         >
+        <router-link :to="{ name: 'profile', params: {  id: data.id }}">
           <img
             :src="`https://image.tmdb.org/t/p/w200${data.poster_path}`"
             alt=""
           />
           <span class="head-title">{{ index + 1 }}. {{ data.title }}</span>
+        </router-link>
         </a>
       </div>
       <div class="footer-foot">
@@ -35,7 +37,7 @@ axios
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU"
           alt=""
         />
-        <span>2022 Popüler Best Movie Site</span>
+        <span>2022 Best Movie Site</span>
       </div>
     </div>
   </section>

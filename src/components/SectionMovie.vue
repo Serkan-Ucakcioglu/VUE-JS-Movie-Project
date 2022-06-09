@@ -12,7 +12,6 @@ axios
     apiData.value = res.data.results.filter(
       (movie) => movie.media_type != "tv"
     );
-
   });
 </script>
 <template>
@@ -20,13 +19,15 @@ axios
     <div class="container">
       <h1>{{ props.title }}</h1>
       <div class="movie-list">
-        <a class="movie-link" v-for="(data, index) in apiData" :key="data.id">
-          <img
-            :src="`https://image.tmdb.org/t/p/w500/${data.backdrop_path}`"
-            :alt="data.title"
-          />
-          <span class="head-title">{{ index + 1 }}. {{ data.title }} </span>
-        </a>
+        <div class="movie-link" v-for="(data, index) in apiData" :key="data.id">
+          <router-link :to="{ name: 'profile', params: { id: data.id } }">
+            <img
+              :src="`https://image.tmdb.org/t/p/w500/${data.poster_path}`"
+              :alt="data.title"
+            />
+            <span class="head-title">{{ index + 1 }}. {{ data.title }} </span>
+          </router-link>
+        </div>
       </div>
     </div>
   </section>
@@ -76,13 +77,16 @@ axios
       width: 200px;
       height: 270px;
       cursor: pointer;
+
       img {
         width: 200px;
         height: 270px;
         box-shadow: -1px 0px 7px 8px rgba(0, 0, 0, 0.75);
+        
       }
       &:hover {
         transform: scale(1.1);
+        transition: 0.4s;
       }
       .head-title {
         position: absolute;

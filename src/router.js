@@ -23,6 +23,12 @@ const router = createRouter({
       path: "/movie",
       component: () => import("@/views/MoviePage"),
     },
+    {
+      name: 'profile',
+      path: "/detail/:id",
+      component: () => import("@/components/DetailMovie"),
+      props: true,
+    },
 
   ],
 });

@@ -81,10 +81,14 @@ axios
           width: 50px;
           height: 50px;
           border-radius: 50%;
+          object-fit: cover;
+          
         }
       }
       span {
-        margin: 0px auto;
+        width: 100%;
+       display: flex;
+       justify-content: center;
       }
     }
   }
