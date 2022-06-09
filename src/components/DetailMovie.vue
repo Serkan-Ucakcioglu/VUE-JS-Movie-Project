@@ -155,7 +155,7 @@ axios
       line-height: 20px;
       align-items: center;
       justify-content: center;
-      text-align: left;
+      text-align: center;
 
       margin-top: 10px;
 
