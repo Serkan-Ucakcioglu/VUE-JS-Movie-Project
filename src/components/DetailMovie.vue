@@ -253,7 +253,9 @@ section {
   .movie {
     flex-direction: column;
 
-    
+    .movie-details{
+      font-size: 15px !important;
+    }
   }
   .cast-wrapper {
     display: flex;
