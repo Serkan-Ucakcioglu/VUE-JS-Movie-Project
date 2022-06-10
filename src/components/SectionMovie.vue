@@ -1,10 +1,18 @@
 <script setup>
 import axios from "axios";
-import { defineProps, ref } from "vue";
+import { defineProps, ref, watch } from "vue";
 
-const props = defineProps(["apiQuery", "title","movie"]);
+const props = defineProps(["apiQuery", "title", "data"]);
 const apiData = ref([]);
 const apiKey = ref("cd3758ae9695adf66bbf6bae68b8d777");
+
+watch(
+  () => apiData.value,
+  () => {
+    apiData.value;
+  }
+);
+
 axios
   .get(`https://api.themoviedb.org/3/${props.apiQuery}?api_key=${apiKey.value}`)
   .then((res) => {
@@ -12,10 +20,9 @@ axios
       (movie) => movie.media_type != "tv"
     );
   });
-
 </script>
 <template>
-  <section class="trend-movie">
+  <section v-show="props.data.length < 3" class="trend-movie">
     <div class="container">
       <h1>{{ props.title }}</h1>
       <div class="movie-list">
@@ -31,6 +38,7 @@ axios
       </div>
     </div>
   </section>
+
   <div class="space"></div>
 </template>
 <style lang="scss">

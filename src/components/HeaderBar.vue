@@ -1,7 +1,13 @@
 <script setup>
-import { ref } from "vue";
+import { ref , defineEmits} from "vue";
 
 const isShow = ref(false);
+const movieText = ref('')
+const emit = defineEmits(['text'])
+
+const send = () => {
+  emit('text', movieText.value)
+}
 </script>
 <template>
   <header>
@@ -53,7 +59,7 @@ const isShow = ref(false);
             <router-link active-class="actives" to="/register"
               >Register</router-link
             >
-            <input type="text" class="search"   placeholder="Search Movie 🔎" />
+            <input type="text" class="search" v-model="movieText"  @input="send" placeholder="Search Movie 🔎" />
           </div>
         </nav>
       </div>
