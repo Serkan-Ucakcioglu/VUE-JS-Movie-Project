@@ -16,8 +16,7 @@ axios
   .then((res) => {
     apiData.value = res.data;
     castData.value = res.data.credits.cast.slice(0, 9);
-    similarData.value = res.data.similar_movies.results.slice(0, 12)
-    
+    similarData.value = res.data.similar_movies.results.slice(0, 12);
   });
 </script>
 
@@ -96,12 +95,11 @@ axios
     <h1>Similar Movies</h1>
     <div class="container">
       <div class="movie_wrapper">
-        <div
-          class="movie_item"
-          v-for="movie in similarData"
-          :key="movie.id"
-        >
-          <a :href="`https://www.themoviedb.org/movie/${movie.id}`" target="_blank">
+        <div class="movie_item" v-for="movie in similarData" :key="movie.id">
+          <a
+            :href="`https://www.themoviedb.org/movie/${movie.id}`"
+            target="_blank"
+          >
             <img
               :src="`https://image.tmdb.org/t/p/w92${movie.poster_path}`"
               :alt="movie.title"
@@ -118,12 +116,12 @@ axios
     </div>
   </section>
   <div class="footer-foot">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU"
-          alt=""
-        />
-        <span>2022 Best Movie Site</span>
-      </div>
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU"
+      alt=""
+    />
+    <span>2022 Best Movie Site</span>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -285,46 +283,45 @@ section {
     font-size: 25px;
   }
   .container {
-    display: flex;
     .movie_wrapper {
       display: flex;
       flex-wrap: wrap;
-      margin: 0;
       .movie_item {
         display: flex;
         flex: 1;
         flex-direction: column;
         flex-wrap: wrap;
-        flex-basis: 130px;
         align-content: center;
         align-items: center;
         justify-content: flex-start;
-        margin: 1rem;
         padding: 1rem;
         text-align: center;
 
         a {
           color: white;
           text-decoration: none;
+          img {
+            width: 92px;
+            height: 138px;
+          }
         }
       }
     }
   }
 }
 
-
-  .footer-foot {
-    background: black;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    img {
-      width: 50px;
-      height: 50px;
-      margin-top: 10px;
-    }
+.footer-foot {
+  background: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  img {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
   }
+}
 
 @media only screen and (max-width: 600px) {
   .hero {
