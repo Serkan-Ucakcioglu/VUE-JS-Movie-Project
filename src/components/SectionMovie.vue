@@ -63,7 +63,6 @@ axios
 }
 .trend-movie {
   display: flex;
-  min-height: 430px;
   background: #1c2434;
   h1 {
     color: white;

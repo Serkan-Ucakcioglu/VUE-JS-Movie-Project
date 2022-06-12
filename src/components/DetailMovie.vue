@@ -127,12 +127,12 @@ axios
 <style lang="scss" scoped>
 .hero {
   width: 100%;
-  min-height: 500px;
-  background-size: 100% 100%;
+  background-size: 100%;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   border-bottom: 1px solid white;
+  object-fit: cover;
 
   .movie {
     max-width: 1000px;
@@ -171,6 +171,7 @@ axios
           display: flex;
           color: white;
           justify-content: center;
+          align-items: center;
           margin-right: 5px;
           span {
             border: 1px solid white;
@@ -187,7 +188,6 @@ axios
     }
 
     .movie-details {
-      min-height: 300px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -327,10 +327,11 @@ section {
   .hero {
     min-height: 400px !important;
     .genre {
-      display: flex;
+      display: inline-flex !important ;
       justify-content: center;
+      flex-wrap: wrap !important;
       .genres {
-        margin-right: 10px;
+        margin-right: 15px !important;
       }
     }
   }

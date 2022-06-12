@@ -20,7 +20,9 @@ axios
         <li v-for="data in apiData" :key="data.id">
           <a :href="`https://www.themoviedb.org/person/${data.id}`">
             <img
-              :src="`https://image.tmdb.org/t/p/w500/${data.profile_path}`"
+              v-if="data.profile_path"
+              :src="
+                `https://image.tmdb.org/t/p/w200/${data.profile_path}`"
             />
             <span>{{ data.name }}</span>
           </a>
