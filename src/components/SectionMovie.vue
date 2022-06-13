@@ -87,6 +87,7 @@ axios
       cursor: pointer;
 
       .movie_img {
+        width: 200px;
         height: 270px !important;
         box-shadow: -1px 0px 7px 8px rgba(0, 0, 0, 0.75);
       }
