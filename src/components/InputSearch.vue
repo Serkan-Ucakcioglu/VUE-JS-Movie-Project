@@ -16,6 +16,7 @@ const api = () => {
     .then((res) => {
       apiData.value = res.data.results[0];
       route.push({ name: "profile", params: { id: apiData.value.id } });
+      movieText.value = ''
     })
     .catch((err) => {
       error.value = true;
