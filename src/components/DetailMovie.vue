@@ -1,6 +1,6 @@
 <script setup>
 import HeaderBar from "./HeaderBar.vue";
-import { defineProps, ref } from "vue";
+import { defineProps, ref, onBeforeUpdate, onMounted } from "vue";
 import axios from "axios";
 
 const props = defineProps(["id"]);
@@ -9,15 +9,29 @@ const apiKey = ref("cd3758ae9695adf66bbf6bae68b8d777");
 const castData = ref([]);
 const similarData = ref([]);
 
-axios
-  .get(
-    `https://api.themoviedb.org/3/movie/${props.id}?api_key=${apiKey.value}&append_to_response=similar_movies,credits,external_ids`
-  )
-  .then((res) => {
-    apiData.value = res.data;
-    castData.value = res.data.credits.cast.slice(0, 9);
-    similarData.value = res.data.similar_movies.results.slice(0, 12);
-  });
+onBeforeUpdate(() => {
+  axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${props.id}?api_key=${apiKey.value}&append_to_response=similar_movies,credits,external_ids`
+    )
+    .then((res) => {
+      apiData.value = res.data;
+      castData.value = res.data.credits.cast.slice(0, 9);
+      similarData.value = res.data.similar_movies.results.slice(0, 12);
+    });
+});
+
+onMounted(() => {
+  axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${props.id}?api_key=${apiKey.value}&append_to_response=similar_movies,credits,external_ids`
+    )
+    .then((res) => {
+      apiData.value = res.data;
+      castData.value = res.data.credits.cast.slice(0, 9);
+      similarData.value = res.data.similar_movies.results.slice(0, 12);
+    });
+});
 </script>
 
 <template>
@@ -30,11 +44,15 @@ axios
       <div class="movie">
         <div class="movie-poster">
           <a
-            :href="`https://image.tmdb.org/t/p/original${apiData.poster_path}`"
+            :href="`https://image.tmdb.org/t/p/w200${
+              apiData.poster_path || apiData.backdrop_path
+            }`"
             target="_blank"
           >
             <img
-              :src="`https://image.tmdb.org/t/p/w200${apiData.poster_path}`"
+              :src="`https://image.tmdb.org/t/p/w200${
+                apiData.poster_path || apiData.backdrop_path
+              }`"
             />
           </a>
 
@@ -63,14 +81,14 @@ axios
       <div class="cast-wrapper">
         <div v-for="actor in castData" :key="actor.id" class="cast">
           <a
-            :href="`https://image.tmdb.org/t/p/original/${actor.profile_path}`"
+            :href="`https://image.tmdb.org/t/p/w200/${actor.profile_path}`"
             :title="actor.name"
             :alt="actor.name"
             target="_blank"
           >
             <img
               v-if="actor.profile_path"
-              :src="`https://image.tmdb.org/t/p/w92${actor.profile_path}`"
+              :src="`https://image.tmdb.org/t/p/w200${actor.profile_path}`"
               :alt="actor.name"
               :title="actor.name"
               class="cast__image"
@@ -83,6 +101,7 @@ axios
             :alt="actor.name"
             target="_blank"
             class="cast__link"
+            loading="lazy"
           >
             <span class="cast__name">{{ actor.name }}</span>
           </a>
@@ -101,7 +120,7 @@ axios
             target="_blank"
           >
             <img
-              :src="`https://image.tmdb.org/t/p/w92${movie.poster_path}`"
+              :src="`https://image.tmdb.org/t/p/w200${movie.poster_path}`"
               :alt="movie.title"
               :title="movie.title"
               class="similar__image"

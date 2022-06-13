@@ -22,7 +22,7 @@ axios
   });
 </script>
 <template>
-  <section v-show="props.data.length < 3" class="trend-movie">
+  <section  class="trend-movie">
     <div class="container">
       <h1>{{ props.title }}</h1>
       <div class="movie-list">

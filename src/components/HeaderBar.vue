@@ -1,13 +1,9 @@
 <script setup>
-import { ref , defineEmits} from "vue";
+import InputSearch from "@/components/InputSearch.vue";
+import { ref } from "vue";
 
 const isShow = ref(false);
-const movieText = ref('')
-const emit = defineEmits(['text'])
 
-const send = () => {
-  emit('text', movieText.value)
-}
 </script>
 <template>
   <header>
@@ -59,7 +55,7 @@ const send = () => {
             <router-link active-class="actives" to="/register"
               >Register</router-link
             >
-            <input type="text" class="search" v-model="movieText"  @input="send" placeholder="Search Movie 🔎" />
+            <InputSearch  />
           </div>
         </nav>
       </div>
@@ -74,16 +70,17 @@ a {
 
 header {
   display: flex;
-  min-height: 70px;
-  background: rgb(12, 15, 22);
+  padding: 5px;
+  background: black;
+  align-items: center;
   border-bottom: 1px solid white;
 
   .header-logo {
     display: flex;
 
     img {
-      width: 70px;
-      height: 70px;
+      width: 50px;
+      height: 55px;
     }
 
     .hamburger-btn {
@@ -95,8 +92,8 @@ header {
       }
 
       .close-menu {
-        color: #fff;
-        fill: #fff;
+        color: white;
+        fill: white;
       }
     }
   }
@@ -108,6 +105,7 @@ header {
 
     .header-bar {
       padding: 5px;
+      margin-left: 10px;
 
       div {
         display: flex;
@@ -115,7 +113,7 @@ header {
       }
 
       a {
-        color: rgb(255, 253, 253);
+        color: white;
         margin-right: 10px;
         padding: 10px;
         font-size: 18px;
@@ -133,32 +131,14 @@ header {
       }
 
       a {
-        color: rgb(247, 247, 247);
+        color: white;
         padding: 10px;
-        margin-left: 8px;
+        margin-left: 18px;
         font-size: 18px;
 
         &:hover {
           background: #3fb883;
           color: white;
-        }
-      }
-
-      input {
-        margin-left: 15px;
-        height: 40px;
-        padding-left: 5px;
-        box-sizing: border-box;
-        outline: none;
-
-        &:focus {
-          background: #75cfa8;
-          color: white;
-          border: 1px solid white;
-
-          ::placeholder {
-            color: white;
-          }
         }
       }
     }
@@ -168,7 +148,6 @@ header {
 @media screen and (max-width: 750px) {
   .header-logo {
     width: 100%;
-    display: flex;
     justify-content: space-between;
     align-items: center;
 

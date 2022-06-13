@@ -21,8 +21,7 @@ axios
           <a :href="`https://www.themoviedb.org/person/${data.id}`">
             <img
               v-if="data.profile_path"
-              :src="
-                `https://image.tmdb.org/t/p/w200/${data.profile_path}`"
+              :src="`https://image.tmdb.org/t/p/w200/${data.profile_path}`"
             />
             <span>{{ data.name }}</span>
           </a>
