@@ -21,6 +21,7 @@ axios
             <img
               :src="`https://image.tmdb.org/t/p/w200${data.poster_path}`"
               alt=""
+              loading="lazy"
             />
             <span class="head-title">{{ index + 1 }}. {{ data.title }}</span>
           </router-link>
