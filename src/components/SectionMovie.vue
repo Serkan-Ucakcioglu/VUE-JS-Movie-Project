@@ -29,7 +29,7 @@ axios
         <div class="movie-link" v-for="(data, index) in apiData" :key="data.id">
           <router-link :to="{ name: 'profile', params: { id: data.id } }">
             <img
-              :src="`https://image.tmdb.org/t/p/w200/${data.poster_path}`"
+              :src="`https://image.tmdb.org/t/p/w200${data.poster_path}`"
               :alt="data.title || data.name"
               loading="lazy"
             />
