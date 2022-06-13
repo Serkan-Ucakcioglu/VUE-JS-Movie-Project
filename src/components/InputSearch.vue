@@ -30,8 +30,10 @@ const api = () => {
     <input
       type="text"
       class="search"
-      v-model="movieText"
+      v-model.trim="movieText"
       placeholder="Search..  🔎"
+      @keydown.enter="api"
+
       :class="{ err: error }"
     />
 
