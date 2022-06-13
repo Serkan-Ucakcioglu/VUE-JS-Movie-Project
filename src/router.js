@@ -33,3 +33,6 @@ const router = createRouter({
   ],
 });
 export default router;
+function lazyLoad(view){
+  return() => import(`@/views/${view}.vue`)
+}
