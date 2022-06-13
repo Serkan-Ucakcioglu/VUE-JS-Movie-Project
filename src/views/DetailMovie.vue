@@ -1,5 +1,5 @@
 <script setup>
-import HeaderBar from "./HeaderBar.vue";
+import HeaderBar from "../components/HeaderBar.vue";
 import { defineProps, ref, onBeforeUpdate, onMounted } from "vue";
 import axios from "axios";
 
