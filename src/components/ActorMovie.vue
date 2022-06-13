@@ -9,13 +9,14 @@ const props = defineProps(["title"]);
 axios
   .get(`https://api.themoviedb.org/3/person/popular?api_key=${apiKey.value}`)
   .then((res) => {
-    apiData.value = res.data.results.slice(0, 12);
+    apiData.value = res.data.results.slice(0, 10);
   });
 </script>
 <template>
   <section class="actor-list">
     <h1>{{ props.title }}</h1>
-    <div class="content">
+    <div class="container">
+      <div class="content">
       <ul>
         <li v-for="data in apiData" :key="data.id">
           <a :href="`https://www.themoviedb.org/person/${data.id}`">
@@ -27,6 +28,7 @@ axios
           </a>
         </li>
       </ul>
+    </div>
     </div>
   </section>
 </template>

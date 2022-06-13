@@ -1,35 +1,33 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-function lazyLoad(view){
-  return() => import(`@/views/${view}.vue`)
-}
+
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
       path: "/",
-      component: lazyLoad('HomePage')
+      component:  () => import("@/views/HomePage.vue"),
     },
     {
       path: "/login",
-      component: lazyLoad('LoginPage')
+      component:  () => import("@/views/LoginPage.vue"),
     },
     {
       path: "/register",
-      component:  lazyLoad('RegisterPage')
+      component:   () => import("@/views/RegisterPage.vue"),
     },
     {
       path: "/actor",
-      component:  lazyLoad('ActorPage')
+      component:   () => import("@/views/ActorPage.vue"),
     },
     {
       path: "/movie",
-      component: lazyLoad('MoviePage')
+      component:  () => import("@/views/MoviePage.vue"),
     },
     {
       name: 'profile',
       path: "/detail/:id",
-      component:  lazyLoad('DetailMovie'),
-      props: true,
+      component:  () => import("@/views/DetailMovie.vue"),
+      props: true
     },
 
   ],
