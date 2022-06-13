@@ -1,7 +1,7 @@
 <script setup>
 import HeaderBar from "@/components/HeaderBar.vue";
 import SectionMovie from "@/components/SectionMovie.vue";
-
+import FooterBar from "@/components/FooterBar.vue";
 
 </script>
 <template>
@@ -14,4 +14,5 @@ import SectionMovie from "@/components/SectionMovie.vue";
     title="Today's Trending Movies"
     apiQuery="movie/top_rated"
   />
+  <FooterBar/>
 </template>

@@ -27,28 +27,7 @@ axios
           </router-link>
         </a>
       </div>
-      <div class="footer-foot">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU"
-          alt=""
-        />
-        <span>2022 Best Movie Site</span>
-      </div>
     </div>
   </section>
 </template>
-<style lang="scss" scoped>
-.trend-movie {
-  .footer-foot {
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    img {
-      width: 50px;
-      height: 50px;
-      margin-top: 10px;
-    }
-  }
-}
-</style>
+<style lang="scss" scoped></style>

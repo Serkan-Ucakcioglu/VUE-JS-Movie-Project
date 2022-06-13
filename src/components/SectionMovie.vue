@@ -1,38 +1,41 @@
 <script setup>
 import axios from "axios";
-import { defineProps, ref, watch } from "vue";
+import { defineProps, ref } from "vue";
 
 const props = defineProps(["apiQuery", "title", "data"]);
 const apiData = ref([]);
 const apiKey = ref("cd3758ae9695adf66bbf6bae68b8d777");
 
-watch(
-  () => apiData.value,
-  () => {
-    apiData.value;
-  }
-);
-
 axios
   .get(`https://api.themoviedb.org/3/${props.apiQuery}?api_key=${apiKey.value}`)
   .then((res) => {
-    apiData.value = res.data.results
+    apiData.value = res.data.results.filter(
+      (movie) => movie.media_type != "tv"
+    );
+    console.log(apiData.value);
   });
 </script>
 <template>
-  <section  class="trend-movie">
+  <section class="trend-movie">
     <div class="container">
       <h1>{{ props.title }}</h1>
       <div class="movie-list">
-        <div loading="lazy" class="movie-link" v-for="(data, index) in apiData" :key="data.id">
-          <router-link  :to="{ name: 'profile', params: { id: data.id } }">
+        <div
+          loading="lazy"
+          class="movie-link"
+          v-for="(data, index) in apiData"
+          :key="data.id"
+        >
+          <router-link :to="{ name: 'profile', params: { id: data.id } }">
             <img
               :src="`https://image.tmdb.org/t/p/w200${data.poster_path}`"
               :alt="data.title || data.name"
               loading="lazy"
               class="movie_img"
             />
-            <span class="head-title">{{ index + 1 }}. {{ data.title || data.name}} </span>
+            <span class="head-title"
+              >{{ index + 1 }}. {{ data.title || data.name }}
+            </span>
           </router-link>
         </div>
       </div>

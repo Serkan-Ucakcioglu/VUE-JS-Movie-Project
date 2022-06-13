@@ -9,7 +9,7 @@ const apiKey = ref("cd3758ae9695adf66bbf6bae68b8d777");
 const castData = ref([]);
 const similarData = ref([]);
 const data = () => {
-   axios
+  axios
     .get(
       `https://api.themoviedb.org/3/movie/${props.id}?api_key=${apiKey.value}&append_to_response=similar_movies,credits,external_ids`
     )
@@ -18,12 +18,11 @@ const data = () => {
       castData.value = res.data.credits.cast.slice(0, 9);
       similarData.value = res.data.similar_movies.results.slice(0, 12);
     });
-}
+};
 
-onBeforeUpdate(data)
-  
+onBeforeUpdate(data);
 
-onMounted(data)
+onMounted(data);
 </script>
 
 <template>
@@ -36,15 +35,15 @@ onMounted(data)
       <div class="movie">
         <div class="movie-poster">
           <a
-            :href="`https://image.tmdb.org/t/p/w200${
-              apiData.poster_path || apiData.backdrop_path
-            }`"
+            :href="`https://image.tmdb.org/t/p/original${apiData.poster_path}`"
+            :alt="apiData.title"
+            :title="apiData.title"
             target="_blank"
           >
             <img
-              :src="`https://image.tmdb.org/t/p/w200${
-                apiData.poster_path || apiData.backdrop_path
-              }`"
+              :src="`https://image.tmdb.org/t/p/w200${apiData.poster_path}`"
+              :alt="apiData.title"
+              :title="apiData.title"
             />
           </a>
 

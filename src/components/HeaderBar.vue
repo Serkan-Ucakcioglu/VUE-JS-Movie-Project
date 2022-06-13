@@ -10,10 +10,10 @@ const isShow = ref(false);
     <div class="container">
       <div class="navbar">
         <div class="header-logo">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU"
-            alt=""
-          />
+          <router-link to="/">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU"
+             alt="" >
+          </router-link>
           <div class="hamburger-btn" @click="isShow = !isShow">
             <svg
               class="open-menu"
