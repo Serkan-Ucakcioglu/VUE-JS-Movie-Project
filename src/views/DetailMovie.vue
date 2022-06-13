@@ -8,9 +8,8 @@ const apiData = ref([]);
 const apiKey = ref("cd3758ae9695adf66bbf6bae68b8d777");
 const castData = ref([]);
 const similarData = ref([]);
-
-onBeforeUpdate(() => {
-  axios
+const data = () => {
+   axios
     .get(
       `https://api.themoviedb.org/3/movie/${props.id}?api_key=${apiKey.value}&append_to_response=similar_movies,credits,external_ids`
     )
@@ -19,19 +18,12 @@ onBeforeUpdate(() => {
       castData.value = res.data.credits.cast.slice(0, 9);
       similarData.value = res.data.similar_movies.results.slice(0, 12);
     });
-});
+}
 
-onMounted(() => {
-  axios
-    .get(
-      `https://api.themoviedb.org/3/movie/${props.id}?api_key=${apiKey.value}&append_to_response=similar_movies,credits,external_ids`
-    )
-    .then((res) => {
-      apiData.value = res.data;
-      castData.value = res.data.credits.cast.slice(0, 9);
-      similarData.value = res.data.similar_movies.results.slice(0, 12);
-    });
-});
+onBeforeUpdate(data)
+  
+
+onMounted(data)
 </script>
 
 <template>
