@@ -27,7 +27,7 @@ axios
       <h1>{{ props.title }}</h1>
       <div class="movie-list">
         <div class="movie-link" v-for="(data, index) in apiData" :key="data.id">
-          <router-link :to="{ name: 'profile', params: { id: data.id } }">
+          <router-link loading="lazy" :to="{ name: 'profile', params: { id: data.id } }">
             <img
               :src="`https://image.tmdb.org/t/p/w200${data.poster_path}`"
               :alt="data.title || data.name"
