@@ -87,7 +87,6 @@ axios
       cursor: pointer;
 
       img {
-        max-width: 200px;
         height: 270px;
         box-shadow: -1px 0px 7px 8px rgba(0, 0, 0, 0.75);
       }
