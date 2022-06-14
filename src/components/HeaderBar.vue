@@ -12,7 +12,7 @@ const isShow = ref(false);
         <div class="header-logo">
           <router-link to="/">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU"
-             alt="" >
+             alt="Movie" >
           </router-link>
           <div class="hamburger-btn" @click="isShow = !isShow">
             <svg

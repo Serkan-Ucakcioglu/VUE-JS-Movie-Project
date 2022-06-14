@@ -43,6 +43,7 @@ onMounted(data);
               :src="`https://image.tmdb.org/t/p/w200${apiData.poster_path}`"
               :alt="apiData.title"
               :title="apiData.title"
+              loading="lazy"
             />
           </a>
 

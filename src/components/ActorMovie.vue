@@ -23,6 +23,7 @@ axios
             <img
               v-if="data.profile_path"
               :src="`https://image.tmdb.org/t/p/w200/${data.profile_path}`"
+              :alt="data.title || data.name"
             />
             <span>{{ data.name }}</span>
           </a>

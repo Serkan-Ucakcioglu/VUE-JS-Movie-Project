@@ -20,7 +20,7 @@ axios
           <router-link :to="{ name: 'profile', params: { id: data.id } }">
             <img
               :src="`https://image.tmdb.org/t/p/w200${data.poster_path}`"
-              alt=""
+              :alt="data.title || data.name"
               loading="lazy"
             />
             <span class="head-title">{{ index + 1 }}. {{ data.title }}</span>
