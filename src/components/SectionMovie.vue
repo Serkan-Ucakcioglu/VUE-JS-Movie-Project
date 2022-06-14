@@ -29,7 +29,6 @@ axios
             <img
               :src="`https://image.tmdb.org/t/p/w200${data.poster_path}`"
               :alt="data.title || data.name"
-              loading="lazy"
               class="movie_img"
             />
             <span class="head-title"
@@ -90,7 +89,7 @@ axios
 
       .movie_img {
         width: 200px;
-        height: 270px !important;
+        height: 300px !important;
         box-shadow: -1px 0px 7px 8px rgba(0, 0, 0, 0.75);
       }
       &:hover {
