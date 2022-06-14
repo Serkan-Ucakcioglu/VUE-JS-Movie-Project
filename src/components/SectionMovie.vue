@@ -30,6 +30,7 @@ axios
               :src="`https://image.tmdb.org/t/p/w200${data.poster_path}`"
               :alt="data.title || data.name"
               class="movie_img"
+              loading="lazy"
             />
             <span class="head-title"
               >{{ index + 1 }}. {{ data.title || data.name }}
@@ -87,6 +88,7 @@ axios
       height: 300px;
       cursor: pointer;
       margin-bottom: 10px;
+
       .movie_img {
         width: 200px;
         height: 300px !important;
