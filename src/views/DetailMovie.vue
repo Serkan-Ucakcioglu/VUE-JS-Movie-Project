@@ -1,6 +1,6 @@
 <script setup>
 import HeaderBar from "../components/HeaderBar.vue";
-import { defineProps, ref, onBeforeUpdate, onMounted } from "vue";
+import { defineProps, ref, onMounted, watchEffect } from "vue";
 import axios from "axios";
 
 const props = defineProps(["id"]);
@@ -8,8 +8,8 @@ const apiData = ref([]);
 const apiKey = ref("cd3758ae9695adf66bbf6bae68b8d777");
 const castData = ref([]);
 const similarData = ref([]);
-const data = () => {
-  axios
+const data =  () => {
+   axios
     .get(
       `https://api.themoviedb.org/3/movie/${props.id}?api_key=${apiKey.value}&append_to_response=similar_movies,credits,external_ids`
     )
@@ -20,8 +20,7 @@ const data = () => {
     });
 };
 
-onBeforeUpdate(data);
-
+watchEffect(data);
 onMounted(data);
 </script>
 
@@ -106,10 +105,7 @@ onMounted(data);
     <div class="container">
       <div class="movie_wrapper">
         <div class="movie_item" v-for="movie in similarData" :key="movie.id">
-          <a
-            :href="`https://www.themoviedb.org/movie/${movie.id}`"
-            target="_blank"
-          >
+          <router-link :to="{ name: 'profile', params: { id: movie.id } }">
             <img
               :src="`https://image.tmdb.org/t/p/w200${movie.poster_path}`"
               :alt="movie.title"
@@ -120,7 +116,7 @@ onMounted(data);
             <div class="similar__name">
               {{ movie.title }} ({{ movie.release_date.slice(0, 4) }})
             </div>
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
