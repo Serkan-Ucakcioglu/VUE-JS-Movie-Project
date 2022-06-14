@@ -84,9 +84,9 @@ axios
       position: relative;
       margin-right: 30px;
       width: 200px;
-      height: 270px;
+      height: 300px;
       cursor: pointer;
-
+      margin-bottom: 10px;
       .movie_img {
         width: 200px;
         height: 300px !important;
