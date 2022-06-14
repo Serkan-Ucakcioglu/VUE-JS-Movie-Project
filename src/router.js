@@ -29,6 +29,12 @@ const router = createRouter({
       component: () => import("@/views/DetailMovie.vue"),
       props: true,
     },
+    {
+      name: "MovieList",
+      path: "/search/:name",
+      component: () => import("@/views/SearchList.vue"),
+      props: true,
+    },
   ],
 });
 export default router;

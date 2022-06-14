@@ -1,53 +1,38 @@
 <script setup>
 import { ref } from "vue";
-import axios from "axios";
 import { useRouter } from "vue-router";
 
 let error = ref(false);
 const route = useRouter();
 const movieText = ref("");
-const apiData = ref([]);
 
-const api = () => {
-  axios
-    .get(
-      `https://api.themoviedb.org/3/search/multi?api_key=cd3758ae9695adf66bbf6bae68b8d777&query=${movieText.value}`
-    )
-    .then((res) => {
-      apiData.value = res.data.results[0];
-      route.push({ name: "profile", params: { id: apiData.value.id } });
-      movieText.value = "";
-      console.log(res.data.results);
-    })
-    .catch((err) => {
-      error.value = true;
-      console.log(err);
-    });
+const push = () => {
+  route.push({ name: "MovieList", params: { name: movieText.value } });
+  movieText.value = "";
 };
 </script>
 
 <template>
-  <form>
+  <div class="search">
     <input
       type="text"
-      class="search"
       v-model.trim="movieText"
       placeholder="Search..  🔎"
       :class="{ err: error }"
     />
 
-    <button type="submit" @click="api">🔎</button>
-  </form>
+    <button type="submit" @click="push">🔎</button>
+  </div>
 </template>
 
 <style scoped>
-form {
+.search {
   width: 100%;
   display: flex;
   align-items: center;
   margin-left: 25px;
 }
-form .search {
+.search input {
   width: 100%;
   height: 40px;
   border-radius: 4px 0 0 4px;
@@ -57,7 +42,7 @@ form .search {
   flex: 1;
   outline: 0;
 }
-form button {
+.search button {
   height: 40px;
   padding: 0 10px;
   background: #2196f3;
@@ -77,7 +62,7 @@ form button:hover {
 }
 
 @media screen and (max-width: 600px) {
-  form {
+  .search {
     margin: 0px auto !important;
   }
 }

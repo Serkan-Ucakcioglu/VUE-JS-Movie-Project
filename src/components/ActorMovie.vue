@@ -10,7 +10,6 @@ axios
   .get(`https://api.themoviedb.org/3/person/popular?api_key=${apiKey.value}`)
   .then((res) => {
     apiData.value = res.data.results.slice(0, 10);
-    console.log(res.data.results);
   });
 </script>
 <template>
