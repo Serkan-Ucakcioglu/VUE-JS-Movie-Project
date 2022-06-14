@@ -160,6 +160,9 @@ onMounted(data);
         margin: 1rem;
         box-shadow: 0 0 30px 1px #000;
         transition: all 50ms ease;
+        &:hover{
+          transform: scale(1.1);
+        }
       }
 
       .movie-time {
