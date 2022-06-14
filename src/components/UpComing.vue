@@ -22,6 +22,7 @@ axios
               :src="`https://image.tmdb.org/t/p/w200${data.poster_path}`"
               :alt="data.title || data.name"
               loading="lazy"
+              class="movie_img"
             />
             <span class="head-title">{{ index + 1 }}. {{ data.title }}</span>
           </router-link>
@@ -30,4 +31,6 @@ axios
     </div>
   </section>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

@@ -43,6 +43,7 @@ onMounted(data);
               :src="`https://image.tmdb.org/t/p/w200${apiData.poster_path}`"
               :alt="apiData.title"
               :title="apiData.title"
+              class="movie_image"
             />
           </a>
 
@@ -153,9 +154,9 @@ onMounted(data);
       flex-direction: column;
       align-items: center;
 
-      img {
+      .movie_image {
         width: 200px;
-        height: auto;
+        height: 250px;
         margin: 1rem;
         box-shadow: 0 0 30px 1px #000;
         transition: all 50ms ease;
