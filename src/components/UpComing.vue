@@ -16,7 +16,7 @@ axios
     <div class="container">
       <h1>UpComing Movies</h1>
       <div class="movie-list">
-        <a class="movie-link" v-for="(data, index) in apiData" :key="data.id">
+        <div class="movie-link" v-for="(data, index) in apiData" :key="data.id">
           <router-link :to="{ name: 'profile', params: { id: data.id } }">
             <img
               :src="`https://image.tmdb.org/t/p/w200${data.poster_path}`"
@@ -25,7 +25,7 @@ axios
             />
             <span class="head-title">{{ index + 1 }}. {{ data.title }}</span>
           </router-link>
-        </a>
+        </div>
       </div>
     </div>
   </section>
