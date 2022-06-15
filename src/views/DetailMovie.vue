@@ -5,13 +5,13 @@ import axios from "axios";
 
 const props = defineProps(["id"]);
 const apiData = ref([]);
-const apiKey = ref("cd3758ae9695adf66bbf6bae68b8d777");
+const apiKey = process.env.VUE_APP_API_KEY
 const castData = ref([]);
 const similarData = ref([]);
 const data =  () => {
    axios
     .get(
-      `https://api.themoviedb.org/3/movie/${props.id}?api_key=${apiKey.value}&append_to_response=similar_movies,credits,external_ids`
+      `https://api.themoviedb.org/3/movie/${props.id}?api_key=${apiKey}&append_to_response=similar_movies,credits,external_ids`
     )
     .then((res) => {
       apiData.value = res.data;

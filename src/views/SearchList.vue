@@ -7,20 +7,19 @@ import { useRouter } from "vue-router";
 const router = useRouter()
 const props = defineProps(["name"]);
 const apiData = ref([]);
+const apiKey = process.env.VUE_APP_API_KEY
 
 const api = () => {
   axios
     .get(
-      `https://api.themoviedb.org/3/search/multi?api_key=cd3758ae9695adf66bbf6bae68b8d777&query=${props.name}`
+      `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&query=${props.name}`
     )
     .then((res) => {
       apiData.value = res.data.results;
-      apiData.value == '' ? router.push({ name: "HomePage"}) : '';
-      console.log("api", apiData.value);
+      apiData.value == '' ? router.push({ name: "HomePage"}) : null;
     })
     .catch((err) => {
       console.log(err);
-       
     });
 };
 watchEffect(api);

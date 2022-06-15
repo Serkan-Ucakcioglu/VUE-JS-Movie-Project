@@ -4,10 +4,10 @@ import { defineProps, ref } from "vue";
 
 const props = defineProps(["apiQuery", "title", "data"]);
 const apiData = ref([]);
-const apiKey = ref("cd3758ae9695adf66bbf6bae68b8d777");
+const apiKey = process.env.VUE_APP_API_KEY
 
 axios
-  .get(`https://api.themoviedb.org/3/${props.apiQuery}?api_key=${apiKey.value}`)
+  .get(`https://api.themoviedb.org/3/${props.apiQuery}?api_key=${apiKey}`)
   .then((res) => {
     apiData.value = res.data.results.filter(
       (movie) => movie.media_type != "tv"

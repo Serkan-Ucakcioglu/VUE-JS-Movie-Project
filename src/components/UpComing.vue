@@ -3,10 +3,10 @@ import axios from "axios";
 import { ref, defineProps } from "vue";
 
 const apiData = ref([]);
-const apiKey = ref("cd3758ae9695adf66bbf6bae68b8d777");
+const apiKey = process.env.VUE_APP_API_KEY
 const props = defineProps(["apiQuery"]);
 axios
-  .get(`https://api.themoviedb.org/3/${props.apiQuery}?api_key=${apiKey.value}`)
+  .get(`https://api.themoviedb.org/3/${props.apiQuery}?api_key=${apiKey}`)
   .then((res) => {
     apiData.value = res.data.results.slice(0, 10);
   });
