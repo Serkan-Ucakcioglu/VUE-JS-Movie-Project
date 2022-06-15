@@ -2,7 +2,9 @@
 import HeaderBar from "@/components/HeaderBar.vue";
 import axios from "axios";
 import { defineProps, ref, watchEffect } from "vue";
+import { useRouter } from "vue-router";
 
+const router = useRouter()
 const props = defineProps(["name"]);
 const apiData = ref([]);
 
@@ -13,10 +15,12 @@ const api = () => {
     )
     .then((res) => {
       apiData.value = res.data.results;
+      apiData.value == '' ? router.push({ name: "HomePage"}) : '';
       console.log("api", apiData.value);
     })
     .catch((err) => {
       console.log(err);
+       
     });
 };
 watchEffect(api);
