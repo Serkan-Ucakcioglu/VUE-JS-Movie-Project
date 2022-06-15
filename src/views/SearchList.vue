@@ -87,4 +87,14 @@ watchEffect(api);
     }
   }
 }
+@media screen and (max-width: 600px) {
+ .movie-list {
+  width: 150px !important;
+  height: 200px !important;
+        .movie_img {
+          width: 150px !important;
+          height: 200px !important;
+        }
+      }
+}
 </style>
