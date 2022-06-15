@@ -13,7 +13,7 @@ const push = () => {
 </script>
 
 <template>
-  <div class="search">
+  <div class="searchs">
     <input
       type="text"
       v-model.trim="movieText"
@@ -27,13 +27,14 @@ const push = () => {
 </template>
 
 <style scoped>
-.search {
+.searchs {
   width: 100%;
-  display: flex;
+  display: flex !important;
+  flex-direction: row !important;
   align-items: center;
   margin-left: 25px;
 }
-.search input {
+.searchs input {
   width: 100%;
   height: 40px;
   border-radius: 4px 0 0 4px;
@@ -43,7 +44,7 @@ const push = () => {
   flex: 1;
   outline: 0;
 }
-.search button {
+.searchs button {
   height: 40px;
   padding: 0 10px;
   background: #2196f3;
@@ -63,7 +64,7 @@ form button:hover {
 }
 
 @media screen and (max-width: 600px) {
-  .search {
+  .searchs {
     margin: 0px auto !important;
   }
 }
