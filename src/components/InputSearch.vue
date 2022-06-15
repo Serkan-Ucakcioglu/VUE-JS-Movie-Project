@@ -19,6 +19,7 @@ const push = () => {
       v-model.trim="movieText"
       placeholder="Search..  🔎"
       :class="{ err: error }"
+      @keydown.enter="push"
     />
 
     <button type="submit" @click="push">🔎</button>
