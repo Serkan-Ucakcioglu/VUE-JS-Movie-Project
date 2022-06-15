@@ -13,6 +13,8 @@ axios
       (movie) => movie.media_type != "tv"
     );
   });
+
+
 </script>
 <template>
   <section class="trend-movie">
