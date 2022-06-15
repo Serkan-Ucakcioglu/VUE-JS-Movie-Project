@@ -7,7 +7,7 @@ const apiData = ref([]);
 const apiKey = process.env.VUE_APP_API_KEY
 
 axios
-  .get(`https://api.themoviedb.org/3/${props.apiQuery}?api_key=${apiKey}`)
+  .get(`https://api.themoviedb.org/3/${props.apiQuery}?api_key=${apiKey.value}`)
   .then((res) => {
     apiData.value = res.data.results.filter(
       (movie) => movie.media_type != "tv"
