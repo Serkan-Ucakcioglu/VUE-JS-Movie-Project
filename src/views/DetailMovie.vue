@@ -5,7 +5,7 @@ import axios from "axios";
 
 const props = defineProps(["id"]);
 const apiData = ref([]);
-const apiKey = process.env.API_KEY
+const apiKey = process.env.VUE_APP_API_KEY
 const castData = ref([]);
 const similarData = ref([]);
 const data =  () => {

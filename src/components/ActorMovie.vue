@@ -2,7 +2,7 @@
 import axios from "axios";
 import { ref, defineProps } from "vue";
 
-const apiKey = process.env.API_KEY
+const apiKey = process.env.VUE_APP_API_KEY
 const apiData = ref([]);
 const props = defineProps(["title"]);
 

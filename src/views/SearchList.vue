@@ -7,7 +7,7 @@ import { useRouter } from "vue-router";
 const router = useRouter()
 const props = defineProps(["name"]);
 const apiData = ref([]);
-const apiKey = process.env.API_KEY
+const apiKey = process.env.VUE_APP_API_KEY
 
 const api = () => {
   axios
