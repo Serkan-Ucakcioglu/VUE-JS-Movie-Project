@@ -3,7 +3,7 @@ import axios from "axios";
 import { ref, defineProps } from "vue";
 
 const apiData = ref([]);
-const apiKey = process.env.VUE_APP_API_KEY
+const apiKey = process.env.API_KEY
 const props = defineProps(["apiQuery"]);
 axios
   .get(`https://api.themoviedb.org/3/${props.apiQuery}?api_key=${apiKey}`)
