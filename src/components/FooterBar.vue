@@ -1,4 +1,5 @@
 <template>
+ <!-- Footer -->
   <div class="footer-foot">
     <img
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU"

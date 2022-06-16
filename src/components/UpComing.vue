@@ -5,6 +5,7 @@ import { ref, defineProps } from "vue";
 const apiData = ref([]);
 const apiKey = process.env.VUE_APP_API_KEY
 const props = defineProps(["apiQuery"]);
+
 axios
   .get(`https://api.themoviedb.org/3/${props.apiQuery}?api_key=${apiKey}`)
   .then((res) => {
@@ -12,6 +13,7 @@ axios
   });
 </script>
 <template>
+ <!-- Upcoming Movies-->
   <section class="trend-movie">
     <div class="container">
       <h1>UpComing Movies</h1>
@@ -31,6 +33,3 @@ axios
     </div>
   </section>
 </template>
-<style lang="scss" scoped>
-
-</style>

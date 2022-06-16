@@ -26,7 +26,10 @@ watchEffect(api);
 </script>
 
 <template>
+ <!-- Header  -->
   <HeaderBar />
+
+ <!-- Searching  List Movie -->
   <section class="search-list">
     <div class="container">
       <div class="movie_wrapper">

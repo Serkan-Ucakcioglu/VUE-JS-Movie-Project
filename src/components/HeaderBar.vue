@@ -3,7 +3,6 @@ import InputSearch from "@/components/InputSearch.vue";
 import { ref } from "vue";
 
 const isShow = ref(false);
-
 </script>
 <template>
   <header>
@@ -11,9 +10,11 @@ const isShow = ref(false);
       <div class="navbar">
         <div class="header-logo">
           <router-link to="/">
+           <!-- Header  Movies Logo -->
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU"
              alt="Movie" >
           </router-link>
+           <!-- Hamburger Button -->
           <div class="hamburger-btn" @click="isShow = !isShow">
             <svg
               class="open-menu"
@@ -40,7 +41,7 @@ const isShow = ref(false);
             </svg>
           </div>
         </div>
-
+         <!-- Navbar Page List  -->
         <nav class="header-bar" :class="{ active: isShow == true }">
           <div>
             <router-link active-class="actives" to="/">Home</router-link>
@@ -55,6 +56,7 @@ const isShow = ref(false);
             <router-link active-class="actives" to="/register"
               >Register</router-link
             >
+             <!-- Search Input-->
             <InputSearch  />
           </div>
         </nav>

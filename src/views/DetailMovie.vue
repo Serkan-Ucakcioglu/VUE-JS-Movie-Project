@@ -25,7 +25,10 @@ onMounted(data);
 </script>
 
 <template>
+    <!--Header-->
   <HeaderBar />
+
+    <!-- Movie Detail -->
   <section
     class="hero"
     :style="`background-image: radial-gradient(circle, rgba(0,0,0,0.5) 0%, #000 100%) ,url(https://image.tmdb.org/t/p/w1280${apiData.backdrop_path})`"
@@ -66,6 +69,7 @@ onMounted(data);
     </div>
   </section>
 
+ <!-- Actor Detail -->
   <section>
     <h1>Actors</h1>
     <div class="container">
@@ -100,7 +104,8 @@ onMounted(data);
       </div>
     </div>
   </section>
-
+  
+ <!-- Similar Movie  Detail -->
   <section class="movies">
     <h1>Similar Movies</h1>
     <div class="container">

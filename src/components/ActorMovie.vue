@@ -11,8 +11,10 @@ axios
   .then((res) => {
     apiData.value = res.data.results.slice(0, 10);
   });
+  
 </script>
 <template>
+ <!-- Actor  List-->
   <section class="actor-list">
     <h1>{{ props.title }}</h1>
     <div class="container">

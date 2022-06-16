@@ -13,10 +13,9 @@ axios
       (movie) => movie.media_type != "tv"
     );
   });
-
-
 </script>
 <template>
+ <!-- Top Rated Movies and  Today's Trending Movies Section-->
   <section class="trend-movie">
     <div class="container">
       <h1>{{ props.title }}</h1>

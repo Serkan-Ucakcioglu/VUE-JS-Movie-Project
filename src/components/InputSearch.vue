@@ -2,7 +2,6 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
-let error = ref(false);
 const route = useRouter();
 const movieText = ref("");
 
@@ -13,12 +12,12 @@ const push = () => {
 </script>
 
 <template>
+ <!-- Search Input And Button -->
   <div class="searchs">
     <input
       type="text"
       v-model.trim="movieText"
       placeholder="Search..  🔎"
-      :class="{ err: error }"
       @keydown.enter="push"
     />
 
@@ -59,10 +58,6 @@ const push = () => {
 form button:hover {
   background: #0b7dda;
 }
-.err {
-  border: 1.5px dashed red !important;
-}
-
 @media screen and (max-width: 600px) {
   .searchs {
     margin: 0px auto !important;
