@@ -4,4 +4,7 @@ dist
 dist-ssr
 *.local
 .vscode
-.env
+.env               
+.env.local         
+.env.[mode]        
+.env.[mode].local   
