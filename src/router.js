@@ -36,6 +36,11 @@ const router = createRouter({
       component: () => import("@/views/SearchList.vue"),
       props: true,
     },
+    
   ],
+  scrollBehavior() {
+    // always scroll to top
+    return { top: 0 }
+  }
 });
 export default router;
