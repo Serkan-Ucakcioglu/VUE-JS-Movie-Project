@@ -5,6 +5,3 @@ dist-ssr
 *.local
 .vscode
 .env               
-.env.local         
-.env.[mode]        
-.env.[mode].local   
