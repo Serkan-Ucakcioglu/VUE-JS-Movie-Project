@@ -93,7 +93,6 @@ axios
       .movie_img {
         width: 200px;
         height: 300px !important;
-        box-shadow: -1px 0px 7px 8px rgba(0, 0, 0, 0.40);
       }
       &:hover {
         transform: scale(1.1);
